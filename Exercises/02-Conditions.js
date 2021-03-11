@@ -105,7 +105,7 @@ if(n1 > n2 && n1 > n3) {
 
     }
 }
-console.log(list);
+//console.log(list);
 
 //Write a program to check if the variable is a number and if it’s a number, check if it is divisible by 2. If it is,print the result, if not, show “X”.
 //Sample input: 10  					Sample input: 7
