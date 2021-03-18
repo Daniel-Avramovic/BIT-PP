@@ -234,7 +234,7 @@ console.log(resCity);
 
  var x = 4;
  var y = 0;
- var operations = '/';
+ var operations = '+';
  var resOperations;
  switch (operations) {
      case '+':
