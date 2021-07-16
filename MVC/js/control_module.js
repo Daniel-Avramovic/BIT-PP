@@ -23,7 +23,14 @@ const controlModule = (function (view, data) {
   };
 
   const onCreateProgram = function () {
-    const dateValue = view.programDate.value;
+    view.resetError(view.errorDisplayProgram);
+    const dateValue = view.getProgramForm().date;
+    try {
+      view.validateFormData(view.getProgramForm());
+    } catch (error) {
+      view.printError(view.errorDisplayProgram, error.message);
+      return;
+    }
     data.createProgram(new Date(dateValue));
     view.printCreatedProgramList(data.getPrintDataProgram());
     view.showOptionProgram(data.getPrintDataProgram());

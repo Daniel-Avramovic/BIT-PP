@@ -21,6 +21,11 @@ const viewModule = (function () {
       genre: $movieGenre.value,
       length: parseInt($movieLength.value),
     };
+  };
+  const getProgramForm = () => {
+    return{
+      date: $programDate.value
+    }
   }
   const getFormForAddMovie = () => {
     return {
@@ -80,11 +85,12 @@ const viewModule = (function () {
   };
   return {
     errDisplay: $errorDisplay,
-    programDate: $programDate,
+    // programDate: $programDate,
     movieToAdd: $addMovie,
     errorDisplayProgram: $errorDisplayProgram,
     resetForm,
     getForm,
+    getProgramForm,
     printError: printError,
     resetError: resetError,
     validateFormData: validateFormData,
