@@ -12,14 +12,13 @@ const controlModule = (function (view, data) {
     const getForm = view.getForm();
     try {
       view.validateFormData(getForm);
+      data.createMovie(getForm);
+      view.printCreatedMovieList(data.getPrintData());
+      view.showOptionMovies(data.getPrintData());
+      view.resetForm();
     } catch (error) {
       view.printError(view.errDisplay, error.message);
-      return;
     }
-    data.createMovie(getForm);
-    view.printCreatedMovieList(data.getPrintData());
-    view.showOptionMovies(data.getPrintData());
-    view.resetForm();
   };
 
   const onCreateProgram = function () {
@@ -27,14 +26,13 @@ const controlModule = (function (view, data) {
     const dateValue = view.getProgramForm().date;
     try {
       view.validateFormData(view.getProgramForm());
+      data.createProgram(new Date(dateValue));
+      view.printCreatedProgramList(data.getPrintDataProgram());
+      view.showOptionProgram(data.getPrintDataProgram());
+      view.resetForm();
     } catch (error) {
       view.printError(view.errorDisplayProgram, error.message);
-      return;
     }
-    data.createProgram(new Date(dateValue));
-    view.printCreatedProgramList(data.getPrintDataProgram());
-    view.showOptionProgram(data.getPrintDataProgram());
-    view.resetForm();
   };
 
   const addMov = function () {
@@ -42,7 +40,9 @@ const controlModule = (function (view, data) {
     const getForm = view.getFormForAddMovie();
     try {
       view.validateFormData(getForm);
-      data.checkProgram(getForm.program).addMovie(data.checkMovie(getForm.movie));
+      data
+        .checkProgram(getForm.program)
+        .addMovie(data.checkMovie(getForm.movie));
     } catch (error) {
       view.printError(view.errorDisplayProgram, error.message);
     }
