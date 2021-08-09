@@ -53,9 +53,9 @@
       }
     };
     this.check = function (pass) {
-      for (var i = 0; i < this.listOfPassengres.length; i++) {
-        var a = this.listOfPassengres[i].seat.number;
-        var b = pass.seat.number;
+      for (let i = 0; i < this.listOfPassengres.length; i++) {
+        let a = this.listOfPassengres[i].seat.number;
+        let b = pass.seat.number;
         if (a === b) {
           pass.seat.number = randomSeat();
         } else {
@@ -65,12 +65,12 @@
       return pass;
     };
     this.checkNameSurname = function (pass) {
-      var check = 0;
-      for (var i = 0; i < this.listOfPassengres.length; i++) {
-        var name1 = this.listOfPassengres[i].person.name;
-        var surname1 = this.listOfPassengres[i].person.surname;
-        var name2 = pass.person.name;
-        var surname2 = pass.person.surname;
+      let check = 0;
+      for (let i = 0; i < this.listOfPassengres.length; i++) {
+        let name1 = this.listOfPassengres[i].person.name;
+        let surname1 = this.listOfPassengres[i].person.surname;
+        let name2 = pass.person.name;
+        let surname2 = pass.person.surname;
         if (name1 === name2 && surname1 === surname2) {
           check = i;
           return check;
@@ -79,12 +79,12 @@
       return -1;
     };
     this.getData = function () {
-      var month = this.date.getMonth();
-      var day = this.date.getUTCDate();
-      var year = this.date.getFullYear();
-      var list = "";
-      for (var i = 0; i < this.listOfPassengres.length; i++) {
-        var get = this.listOfPassengres[i].getData() + "\n";
+      const month = this.date.getMonth();
+      const day = this.date.getUTCDate();
+      const year = this.date.getFullYear();
+      let list = "";
+      for (let i = 0; i < this.listOfPassengres.length; i++) {
+        let get = this.listOfPassengres[i].getData() + "\n";
         list += "\t" + get;
       }
       return (
@@ -92,11 +92,11 @@
       );
     };
     this.getDataModify = function () {
-      var month = this.date.getMonth();
-      var day = this.date.getUTCDate();
-      var year = this.date.getFullYear();
-      var name = this.relation.split(" - ");
-      var nameResult =
+      const month = this.date.getMonth();
+      const day = this.date.getUTCDate();
+      const year = this.date.getFullYear();
+      let name = this.relation.split(" - ");
+      let nameResult =
         name[0][0].toUpperCase() +
         name[0][name.length - 1].toUpperCase() +
         " - " +
@@ -137,10 +137,10 @@
     this.addFlight = function (fly) {
       this.listOfFlghts.push(fly);
       this.getData = function () {
-        var countPasenger = 0;
-        var list = "";
-        for (var i = 0; i < this.listOfFlghts.length; i++) {
-          var element = this.listOfFlghts[i];
+        let countPasenger = 0;
+        let list = "";
+        for (let i = 0; i < this.listOfFlghts.length; i++) {
+          let element = this.listOfFlghts[i];
           this.totalNumOfBusiness += element.numOfBusiness;
           countPasenger += element.listOfPassengres.length;
           list += element.getData();
@@ -186,17 +186,17 @@
   // var passenger2 = new Passenger(person2, seat2);
   // var passenger3 = new Passenger(person3, seat3);
   // var passenger4 = new Passenger(person4, seat4);
-  var passenger1 = createPassenger("John", "Snow", 1, 'b');
-  var passenger2 = createPassenger("Maria", "Smith");
-  var passenger3 = createPassenger("Eva", "Broun", 4, 'b');
-  var passenger4 = createPassenger("Johny", "Dep", 5, "b");
-  var passenger5 = createPassenger("Eva", "Broun", 5, "b");
-  var passenger6 = createPassenger("Johny", "Dep", 6, "b");
-  var passenger7 = createPassenger("Johny", "Dep", 8, "e");
+  const passenger1 = createPassenger("John", "Snow", 1, 'b');
+  const passenger2 = createPassenger("Maria", "Smith");
+  const passenger3 = createPassenger("Eva", "Broun", 4, 'b');
+  const passenger4 = createPassenger("Johny", "Dep", 5, "b");
+  const passenger5 = createPassenger("Eva", "Broun", 5, "b");
+  const passenger6 = createPassenger("Johny", "Dep", 6, "b");
+  const passenger7 = createPassenger("Johny", "Dep", 8, "e");
 
-  var flight1 = createFilght("Belgrade - Paris", new Date(2021, 7, 24));
-  var flight2 = createFilght("Barselona - Belgrade", new Date(2021, 9, 20));
-  var NikolaTesla = new Airport();
+  const flight1 = createFilght("Belgrade - Paris", new Date(2021, 7, 24));
+  const flight2 = createFilght("Barselona - Belgrade", new Date(2021, 9, 20));
+  const NikolaTesla = new Airport();
 
   flight1.addPassengrs(passenger1);
   flight1.addPassengrs(passenger2);

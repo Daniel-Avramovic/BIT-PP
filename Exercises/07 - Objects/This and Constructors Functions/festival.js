@@ -39,13 +39,13 @@
       }
     };
     this.getData = function () {
-      var month = this.date.getMonth();
-      var day = this.date.getUTCDate();
-      var year = this.date.getFullYear();
-      var list = "";
-      var duration = 0;
-      for (var i = 0; i < this.listOfMovies.length; i++) {
-        var element = this.listOfMovies[i];
+      const month = this.date.getMonth();
+      const day = this.date.getUTCDate();
+      const year = this.date.getFullYear();
+      let list = "";
+      let duration = 0;
+      for (let i = 0; i < this.listOfMovies.length; i++) {
+        let element = this.listOfMovies[i];
         list += "\t\t" + element.getData() + "\n";
         duration += element.length;
       }
@@ -63,20 +63,20 @@
       );
     };
     this.calcDuration = function () {
-      var dur = 0;
-      for (var i = 0; i < this.listOfMovies.length; i++) {
-        var element = this.listOfMovies[i];
+      let dur = 0;
+      for (let i = 0; i < this.listOfMovies.length; i++) {
+        let element = this.listOfMovies[i];
         dur += element.length;
       }
       return dur;
     };
     this.calcSameGengre = function () {
-      var counter = 0;
-      for (var i = 0; i < this.listOfMovies.length; i++) {
-        var element = this.listOfMovies[i].genre.name;
-        var tempCout = 0;
-        for (var i = 0; i < this.listOfMovies.length; i++) {
-          var element1 = this.listOfMovies[i].genre.name;
+      let counter = 0;
+      for (let i = 0; i < this.listOfMovies.length; i++) {
+        let element = this.listOfMovies[i].genre.name;
+        let tempCout = 0;
+        for (let i = 0; i < this.listOfMovies.length; i++) {
+          let element1 = this.listOfMovies[i].genre.name;
           if (element === element1) {
             tempCout++;
           }
@@ -88,14 +88,14 @@
       return counter;
     };
     this.nameSameGengre = function () {
-      var counter = 0;
-      var name = "";
-      for (var i = 0; i < this.listOfMovies.length; i++) {
-        var element = this.listOfMovies[i].genre.name;
-        var tempCout = 0;
-        var tempName = "";
-        for (var i = 0; i < this.listOfMovies.length; i++) {
-          var element1 = this.listOfMovies[i].genre.name;
+      let counter = 0;
+      let name = "";
+      for (let i = 0; i < this.listOfMovies.length; i++) {
+        let element = this.listOfMovies[i].genre.name;
+        let tempCout = 0;
+        let tempName = "";
+        for (let i = 0; i < this.listOfMovies.length; i++) {
+          let element1 = this.listOfMovies[i].genre.name;
           if (element === element1) {
             tempCout++;
             tempName = element1;
@@ -120,9 +120,9 @@
       this.totalNumberOfAllMovies += program.totalNumberOfMovies;
     };
     this.getData = function () {
-      var list = "";
-      for (var i = 0; i < this.listOfPrograms.length; i++) {
-        var element = this.listOfPrograms[i];
+      let list = "";
+      for (let i = 0; i < this.listOfPrograms.length; i++) {
+        let element = this.listOfPrograms[i];
         list += "\t" + element.getData();
       }
       if (this.listOfPrograms == 0) {
@@ -163,15 +163,15 @@
   function createProgram(date) {
     return new Program(date);
   }
-  var movie1 = createMovie("FastAndFourious", "action", 90);
-  var movie2 = createMovie("FastAndFourious2", "drama", 140);
-  var movie3 = createMovie("FastAndFourious3", "drama", 170);
-  var movie4 = createMovie("Thor", "horor", 140);
-  var movie5 = createMovie("Avengers", "action", 130);
-  var movie6 = createMovie("Avengers2", "action", 130);
-  var program1 = createProgram(new Date(2021, 7, 24));
-  var program2 = createProgram(new Date(2021, 7, 28));
-  var festival = new Festival("Summer Festival", 10);
+  const movie1 = createMovie("FastAndFourious", "action", 90);
+  const movie2 = createMovie("FastAndFourious2", "drama", 140);
+  const movie3 = createMovie("FastAndFourious3", "drama", 170);
+  const movie4 = createMovie("Thor", "horor", 140);
+  const movie5 = createMovie("Avengers", "action", 130);
+  const movie6 = createMovie("Avengers2", "action", 130);
+  const program1 = createProgram(new Date(2021, 7, 24));
+  const program2 = createProgram(new Date(2021, 7, 28));
+  const festival = new Festival("Summer Festival", 10);
   program1.addMovie(movie1);
   program1.addMovie(movie2);
   program1.addMovie(movie3);
